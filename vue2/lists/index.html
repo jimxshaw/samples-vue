@@ -10,17 +10,16 @@
 
 <body>
   <div id="app">
-    <div v-bind:title="randNum" v-if="shown">
-      Hover over me for your random number
-    </div>
+    <ul>
+      <li>{{colors[0]}}</li>
+    </ul>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        randNum: Math.floor(Math.random() * 100) + 1,
-        shown: false
+        colors: ['green', 'red', 'blue', 'orange', 'purple', 'yellow', 'black']
       }
     })
   </script>
