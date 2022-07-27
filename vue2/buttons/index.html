@@ -10,14 +10,19 @@
 
 <body>
   <div id="app">
-
+    <button class="btn btn-success" v-on:click="reveal">Reveal the Secret Number</button>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-
+        secretNumber: Math.floor(Math.random() * 100) + 1
+      },
+      methods: {
+        reveal() {
+          alert(`Here's the Secret Number: ${this.secretNumber}`)
+        }
       }
     })
   </script>
