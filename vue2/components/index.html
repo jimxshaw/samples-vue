@@ -10,7 +10,8 @@
 
 <body>
   <div id="app">
-    <counter></counter>
+    <!-- In HTML, use kabob-case, separate by dash. -->
+    <counter v-bind:add-num="3"></counter>
   </div>
 
   <script>
@@ -18,9 +19,16 @@
       template: `
         <div>
           <div>Count: {{this.count}}</div>
-          <button class="btn btn-primary" @click="increment">Increment by 1</button>
+          <button class="btn btn-primary" @click="increment">Increment by {{this.addNum}}</button>
         </div>
       `,
+      props: {
+        // In JS, use camelCase.
+        addNum: {
+          type: Number,
+          default: 1
+        }
+      },
       data() {
         return {
           count: 0
@@ -28,7 +36,7 @@
       },
       methods: {
         increment() {
-          this.count++
+          this.count += this.addNum
         }
       }
     })
