@@ -10,14 +10,33 @@
 
 <body>
   <div id="app">
-    
+    <counter></counter>
   </div>
 
   <script>
+    var counter = Vue.component('counter', {
+      template: `
+        <div>
+          <div>Count: {{this.count}}</div>
+          <button class="btn btn-primary" @click="increment">Increment by 1</button>
+        </div>
+      `,
+      data() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increment() {
+          this.count++
+        }
+      }
+    })
+
     var app = new Vue({
       el: '#app',
-      data: {
-        
+      components: {
+        counter
       }
     })
   </script>
