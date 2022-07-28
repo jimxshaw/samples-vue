@@ -38,6 +38,16 @@
             date: new Date(Date.now()).toLocaleString()
           }
         ]
+      },
+      methods: {
+        addNote() {
+          let { text, title } = this.note
+          this.notes.push({
+            text,
+            title,
+            date: new Date(Date.now()).toLocaleString()
+          })
+        }
       }
     })
   </script>
